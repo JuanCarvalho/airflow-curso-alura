@@ -1,11 +1,15 @@
 import pytest
-from lib.service import Service
+from unittest.mock import patch
 from datetime import date
+from lib.service import Service
+from tests.mock.mock_api import MockAPI
 
 
 @pytest.fixture(scope="module")
 def service():
-    return Service()
+    instance = Service()
+    instance.api = MockAPI()
+    return instance
 
 
 def test_whater(service: Service):
