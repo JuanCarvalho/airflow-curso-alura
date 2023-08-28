@@ -1,4 +1,4 @@
-from project_settings import API_KEY, BASE_URL
+from airflow_project.project_settings import API_KEY, BASE_URL
 
 
 def test_settings():

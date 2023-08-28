@@ -1,5 +1,5 @@
 import pytest
-from lib.api import API
+from airflow_project.common_lib.api import API
 
 
 @pytest.fixture(scope="module")

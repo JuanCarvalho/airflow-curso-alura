@@ -2,10 +2,7 @@ from typing import Any, Dict
 import requests
 from datetime import datetime, timedelta
 
-import project_settings
-
-# URL = join('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',
-#            f'{city}/{start_date}/{end_date}?unitGroup=metric&include=days&key={key}&contentType=csv')
+import airflow_project.project_settings as project_settings
 
 
 class API:

@@ -155,3 +155,5 @@ cython_debug/
 .vscode/
 
 **/*.ipynb
+airflow_project/airflow.cfg
+airflow_project/airflow.db

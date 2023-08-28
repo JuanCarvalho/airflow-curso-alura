@@ -8,3 +8,5 @@ BASE_URL = os.getenv('BASE_URL')
 API_URLS = {
     'weather': f'{BASE_URL}/VisualCrossingWebServices/rest/services/timeline',
 }
+
+BASE_PATH = os.path.dirname(os.path.abspath(__file__))
