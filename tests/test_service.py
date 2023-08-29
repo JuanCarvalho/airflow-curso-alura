@@ -12,6 +12,6 @@ def service():
 
 
 def test_whater(service: APIService):
-    response = service.whater('Buenos Aires')
+    response = service.weather('Buenos Aires')
     str_today = date.today().strftime('%Y-%m-%d')
     assert response[0]['datetime'] == str_today

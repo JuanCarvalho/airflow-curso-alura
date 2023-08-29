@@ -157,3 +157,5 @@ cython_debug/
 **/*.ipynb
 airflow_project/airflow.cfg
 airflow_project/airflow.db
+
+**/arquives/**

@@ -1,9 +1,9 @@
 from typing import Any, Dict
-from airflow_project.common_lib.api import API
+from airflow_project.common_lib.api import WeatherAPI
 from datetime import date
 
 
-class MockAPI(API):
+class MockAPI(WeatherAPI):
     def whater(self, city: str, period_days: int = 7) -> Dict[str, Any]:
         # Implementação controlada de mock dos dados
         date_today = date.today().strftime('%Y-%m-%d')

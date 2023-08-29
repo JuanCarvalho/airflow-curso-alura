@@ -1,11 +1,11 @@
 import pytest
-from airflow_project.common_lib.api import API
+from airflow_project.common_lib.api import WeatherAPI
 
 
 @pytest.fixture(scope="module")
 def api():
-    return API()
+    return WeatherAPI()
 
 
-def test_whater(api: API):
-    assert api.whater('São Paulo')
+def test_whater(api: WeatherAPI):
+    assert api.weather('São Paulo')

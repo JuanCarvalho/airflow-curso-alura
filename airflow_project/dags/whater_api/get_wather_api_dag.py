@@ -16,14 +16,14 @@ with DAG(
 
     api_get_dag = PythonOperator(
         task_id='api_get',
-        python_callable=api_service.whater,
+        python_callable=api_service.weather,
         op_args=['São Paulo', 15],
     )
 
     data_to_file_dag = PythonOperator(
         task_id='data_to_file',
         python_callable=data_to_file,
-        op_args=['{{ ti.xcom_pull(task_ids="api_get") }}', 'sao_paulo'],
+        op_args=['{{ ti.xcom_pull(task_ids="api_get") }}', 'sao_paulo', 'weather'],
     )
 
     api_get_dag >> data_to_file_dag

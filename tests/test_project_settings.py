@@ -1,6 +1,7 @@
-from airflow_project.project_settings import API_KEY, BASE_URL
+from airflow_project.project_settings import WEATHER_API_KEY, WEATHER_BASE_URL, BASE_PATH
 
 
 def test_settings():
-    assert API_KEY
-    assert BASE_URL
+    assert WEATHER_API_KEY
+    assert WEATHER_BASE_URL
+    assert BASE_PATH

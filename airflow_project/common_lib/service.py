@@ -1,14 +1,14 @@
 from typing import Any, Dict, List
-from airflow_project.common_lib.api import API
-from airflow_project.common_lib.serializers import TemperatureModel
+from airflow_project.common_lib.api import TwitterAPI, WeatherAPI
+from airflow_project.common_lib.serializers import TemperatureModel, TwitterModel
 from airflow_project.common_lib.utils import method_serializer
 
 
 class APIService:
-    api = API()
+    api = WeatherAPI()
 
     @method_serializer(TemperatureModel)
-    def whater(self, city: str, period_days: int = 7) -> List[Dict[str, Any]]:
+    def weather(self, city: str, period_days: int = 7) -> List[Dict[str, Any]]:
         """
         ### Return the weather forecast for the next 7 days
 
@@ -21,9 +21,26 @@ class APIService:
         ##### Usage:
         ```python
         instance = Service()
-        instance.whater('São Paulo', 2)
+        instance.weather('São Paulo', 2)
         ```
         """
-        whater_data = self.api.whater(city, period_days)
-        list_days: List[Dict[str, Any]] = whater_data['days']
-        return list_days
+        weather_data = self.api.weather(city, period_days)
+        days: List[Dict[str, Any]] = weather_data['days']
+        return days
+
+    @method_serializer(TwitterModel)
+    def twitter(self):
+        """
+        ### Return the twitter data
+
+        :return: Dict[str, Any]
+
+        ##### Usage:
+        ```python
+        instance = Service()
+        instance.twitter()
+        ```
+        """
+        api = TwitterAPI()
+        twittes: List[Dict[str, Any]] = api.get_twitts()['data']
+        return twittes
